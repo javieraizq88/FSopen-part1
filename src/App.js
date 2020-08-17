@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom'
 import './App.css';
 import Button from './button';
+import Statistics from './stadistic';
 
 
 const App = () => {
@@ -41,17 +42,12 @@ const App = () => {
       <br />
 
 <h1>Stadistics</h1>
-      <div>
-        Good: {good}
-      </div>
-      <div>
-        Neutral: {neutral}
-        </div>
-      <div>
-        Bad: {bad}
-        </div>
 
-
+        < Statistics 
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        />
 
     </div>
 
