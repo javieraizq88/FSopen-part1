@@ -1,26 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom'
 import './App.css';
+import Button from './button';
 
-function App() {
+
+const App = () => {
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+
+  const setToGoodValue = newValue => {
+    setGood(newValue)
+  }
+
+  const setToNeutralValue = newValue => {
+    setNeutral(newValue)
+  }
+
+  const setToBadValue = newValue => {
+    setBad(newValue)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Give feedback</h1>
+      <p className="buttons-container">
+        <Button
+          className="good-button"
+          handleClick={() => setToGoodValue(good + 1)}
+          text="Good" />
+        <Button
+          className="neutral-button"
+          handleClick={() => setToNeutralValue(neutral + 1)}
+          text="Neutral" />
+        <Button
+          className="bad-button"
+          handleClick={() => setToBadValue(bad + 1)}
+          text="Bad" />
+      </p>
+      <br />
+
+<h1>Stadistics</h1>
+      <div>
+        Good: {good}
+      </div>
+      <div>
+        Neutral: {neutral}
+        </div>
+      <div>
+        Bad: {bad}
+        </div>
+
+
+
     </div>
+
   );
 }
 
 export default App;
+
+ReactDOM.render(<App />,
+  document.getElementById('root')
+)
